@@ -182,7 +182,7 @@ Copyright © 2026 **Juan Santiago Blanco Herrera**. Todos los derechos reservado
 
 Este proyecto es de carácter privado. No está permitida su reproducción, distribución, modificación, transmisión o uso, total o parcial, sin la autorización previa y por escrito del autor.
 
-Para solicitar permisos, contactar a: contacto@dondejavi.com
+Para solicitar permisos, contactar a: juansantiagoblanco@outlook.com
 
 ---
 
