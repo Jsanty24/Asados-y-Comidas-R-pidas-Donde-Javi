@@ -188,7 +188,9 @@ Las contribuciones son bienvenidas. Para contribuir:
 
 ## 📄 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
+Copyright © 2026 **Juan Santiago Blanco Herrera**. Todos los derechos reservados.
+
+Este proyecto es de carácter privado. No está permitida su reproducción, distribución o modificación sin autorización expresa del autor. Ver el archivo `LICENSE` para más detalles.
 
 ---
 
