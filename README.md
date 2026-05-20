@@ -176,22 +176,14 @@ Asados-y-Comidas-R-pidas-Donde-Javi/
 └── README.md               # Este archivo
 ```
 
-## 🤝 Contribuir
-
-Las contribuciones son bienvenidas. Para contribuir:
-
-1. Haz un fork del proyecto
-2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
-3. Haz commit de tus cambios (`git commit -m 'Agrega nueva funcionalidad'`)
-4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
-5. Abre un Pull Request
-
 ## 📄 Licencia
 
 Copyright © 2026 **Juan Santiago Blanco Herrera**. Todos los derechos reservados.
 
-Este proyecto es de carácter privado. No está permitida su reproducción, distribución o modificación sin autorización expresa del autor. Ver el archivo `LICENSE` para más detalles.
+Este proyecto es de carácter privado. No está permitida su reproducción, distribución, modificación, transmisión o uso, total o parcial, sin la autorización previa y por escrito del autor.
+
+Para solicitar permisos, contactar a: contacto@dondejavi.com
 
 ---
 
-<p align="center">Hecho con ❤️ para Donde Javi</p>
+<p align="center">Hecho por Juan Santiago Blanco Herrera © 2026</p>
