@@ -194,4 +194,4 @@ Este proyecto es de carácter privado. No está permitida su reproducción, dist
 
 ---
 
-<p align="center">Hecho con ❤️ para Donde Javi</p>
+<p align="center">Hecho con ❤️</p>
