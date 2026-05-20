@@ -1,7 +1,5 @@
 {
-  "buildCommand": false,
+  "buildCommand": null,
   "outputDirectory": ".",
-  "routes": [
-    { "src": "/", "dest": "/index.html" }
-  ]
+  "framework": null
 }
