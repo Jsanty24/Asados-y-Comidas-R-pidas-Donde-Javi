@@ -1,0 +1,7 @@
+{
+  "buildCommand": false,
+  "outputDirectory": ".",
+  "routes": [
+    { "src": "/", "dest": "/index.html" }
+  ]
+}
