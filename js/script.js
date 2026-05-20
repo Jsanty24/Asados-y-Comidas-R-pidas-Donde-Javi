@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', () => {
-
-    // ==================== SLIDER ====================
     const slides = document.querySelectorAll('.hero-slide');
     const dotsContainer = document.querySelector('.hero-dots');
     const prevBtn = document.querySelector('.hero-control.prev');
@@ -43,7 +41,6 @@ document.addEventListener('DOMContentLoaded', () => {
     goToSlide(0);
     startSlider();
 
-    // ==================== MOBILE MENU ====================
     const menuToggle = document.querySelector('.menu-toggle');
     const nav = document.querySelector('.nav');
 
@@ -57,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // ==================== MENU TABS ====================
     const tabs = document.querySelectorAll('.menu-tab');
     const menuItems = document.querySelectorAll('.menu-item');
 
@@ -69,20 +65,19 @@ document.addEventListener('DOMContentLoaded', () => {
             const category = tab.dataset.category;
 
             menuItems.forEach(item => {
-                if (category === 'combos' || item.dataset.category === category) {
+                if (category === 'picadas' || item.dataset.category === category) {
                     item.style.display = 'block';
                 } else {
                     item.style.display = 'none';
                 }
             });
 
-            if (category === 'combos') {
+            if (category === 'picadas') {
                 menuItems.forEach(item => item.style.display = 'block');
             }
         });
     });
 
-    // ==================== SURVEY FORM ====================
     const surveyForm = document.getElementById('survey-form');
     const surveySuccess = document.getElementById('survey-success');
 
@@ -135,7 +130,6 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // ==================== ACTIVE NAV LINK ====================
     const sections = document.querySelectorAll('section[id]');
     const navLinks = document.querySelectorAll('.nav-list a');
 
@@ -158,7 +152,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     window.addEventListener('scroll', updateActiveNav);
 
-    // ==================== SCROLL ANIMATIONS ====================
     const animateElements = document.querySelectorAll('.promo-card, .menu-item, .about-feature, .contact-card');
 
     const observer = new IntersectionObserver((entries) => {

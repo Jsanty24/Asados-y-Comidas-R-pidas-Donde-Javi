@@ -201,19 +201,9 @@ img {
     gap: 20px;
 }
 
-.logo h1 {
-    font-family: var(--font-display);
-    font-size: 2.2rem;
-    color: var(--color-primary);
-    letter-spacing: 2px;
-    line-height: 1;
-}
-
-.logo-sub {
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    color: var(--color-gray-600);
+.logo-img {
+    height: 60px;
+    width: auto;
     display: block;
 }
 
@@ -522,9 +512,30 @@ img {
     transition: transform var(--transition), box-shadow var(--transition);
 }
 
+.menu-item--full {
+    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 250px 1fr;
+}
+
+.menu-item--full .menu-item-img {
+    height: 100%;
+    min-height: 200px;
+}
+
 .menu-item:hover {
     transform: translateY(-4px);
     box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+@media (max-width: 768px) {
+    .menu-item--full {
+        grid-template-columns: 1fr;
+    }
+    .menu-item--full .menu-item-img {
+        height: 180px;
+        min-height: auto;
+    }
 }
 
 .menu-item-img {
