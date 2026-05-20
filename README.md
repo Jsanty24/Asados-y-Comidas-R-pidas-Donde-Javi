@@ -190,15 +190,6 @@ Las contribuciones son bienvenidas. Para contribuir:
 
 Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-## 📞 Contacto
-
-**Donde Javi - Asados y Comidas Rápidas**
-
-- 📍 Calle 26 # 103-09, Local 1330, Bogotá, Colombia
-- 📞 +57 300 123 4567
-- 📧 contacto@dondejavi.com
-- 🌐 [asados-y-comidas-r-pidas-donde-javi.vercel.app](https://asados-y-comidas-r-pidas-donde-javi.vercel.app)
-
 ---
 
 <p align="center">Hecho con ❤️ para Donde Javi</p>
