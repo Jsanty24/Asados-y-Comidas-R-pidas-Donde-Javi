@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slides.forEach((_, i) => {
         const dot = document.createElement('span');
-        dot.addEventListener('click', () => goToSlide(i));
+        dot.addEventListener('click', () => { stopSlider(); goToSlide(i); resetSlider(); });
         dotsContainer.appendChild(dot);
     });
 
@@ -243,30 +243,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     loadComments();
-
-    // ==================== REAL-TIME COMMENTS ====================
-    supabaseClient
-        .channel('encuestas-realtime')
-        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'encuestas' }, payload => {
-            const { nombre, calificacion, mensaje, created_at } = payload.new;
-            const stars = '★'.repeat(calificacion) + '☆'.repeat(5 - calificacion);
-            const date = created_at ? new Date(created_at).toLocaleDateString('es-CO') : '';
-            const emptyMsg = commentsList.querySelector('.comments-empty');
-            if (emptyMsg) emptyMsg.remove();
-
-            const card = document.createElement('div');
-            card.className = 'comment-card';
-            card.innerHTML = `
-                <div class="comment-header">
-                    <span class="comment-name">${escapeHtml(nombre)}</span>
-                    <span class="comment-stars">${stars}</span>
-                </div>
-                <p class="comment-message">${escapeHtml(mensaje)}</p>
-                <div class="comment-date">${date}</div>
-            `;
-            commentsList.prepend(card);
-        })
-        .subscribe();
 
 });
 
