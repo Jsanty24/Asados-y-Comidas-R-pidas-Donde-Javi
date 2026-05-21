@@ -86,11 +86,11 @@ Creemos en la **inclusión** como valor fundamental. Queremos que todos disfrute
 
 | Tecnología | Propósito |
 |------------|-----------|
-| ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=flat&logo=html5&logoColor=white) | Estructura de la página |
-| ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=flat&logo=css3&logoColor=white) | Estilos y diseño responsive |
-| ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat&logo=javascript&logoColor=black) | Interactividad (slider, tabs, formularios) |
-| ![Supabase](https://img.shields.io/badge/Supabase-3ECF8E?style=flat&logo=supabase&logoColor=white) | Backend para almacenar encuestas |
-| ![Vercel](https://img.shields.io/badge/Vercel-000000?style=flat&logo=vercel&logoColor=white) | Hosting y despliegue continuo |
+| ![HTML5]| Estructura de la página |
+| ![CSS3] | Estilos y diseño responsive |
+| ![JavaScript]| Interactividad (slider, tabs, formularios) |
+| ![Supabase]| Backend para almacenar encuestas |
+| ![Vercel]| Hosting y despliegue continuo |
 
 ## 📦 Instalación
 
@@ -176,14 +176,29 @@ Asados-y-Comidas-R-pidas-Donde-Javi/
 └── README.md               # Este archivo
 ```
 
+## 🤝 Contribuir
+
+Las contribuciones son bienvenidas. Para contribuir:
+
+1. Haz un fork del proyecto
+2. Crea una rama (`git checkout -b feature/nueva-funcionalidad`)
+3. Haz commit de tus cambios (`git commit -m 'Agrega nueva funcionalidad'`)
+4. Haz push a la rama (`git push origin feature/nueva-funcionalidad`)
+5. Abre un Pull Request
+
 ## 📄 Licencia
 
-Copyright © 2026 **Juan Santiago Blanco Herrera**. Todos los derechos reservados.
+Este proyecto está bajo la Licencia MIT. Ver el archivo `LICENSE` para más detalles.
 
-Este proyecto es de carácter privado. No está permitida su reproducción, distribución, modificación, transmisión o uso, total o parcial, sin la autorización previa y por escrito del autor.
+## 📞 Contacto
 
-Para solicitar permisos, contactar a: juansantiagoblanco@outlook.com
+**Donde Javi - Asados y Comidas Rápidas**
+
+- 📍 Calle 26 # 103-09, Local 1330, Bogotá, Colombia
+- 📞 +57 300 123 4567
+- 📧 contacto@dondejavi.com
+- 🌐 [asados-y-comidas-r-pidas-donde-javi.vercel.app](https://asados-y-comidas-r-pidas-donde-javi.vercel.app)
 
 ---
 
-<p align="center">Hecho por Juan Santiago Blanco Herrera © 2026</p>
+<p align="center">Hecho con ❤️ para Donde Javi</p>
