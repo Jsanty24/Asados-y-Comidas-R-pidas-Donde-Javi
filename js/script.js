@@ -8,13 +8,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
     slides.forEach((_, i) => {
         const dot = document.createElement('span');
-        dot.addEventListener('click', () => { stopSlider(); goToSlide(i); resetSlider(); });
+        dot.addEventListener('click', () => moveToSlide(i));
         dotsContainer.appendChild(dot);
     });
 
     const dots = dotsContainer.querySelectorAll('span');
 
-    function goToSlide(index) {
+    function showSlide(index) {
         slides.forEach(s => s.classList.remove('active'));
         dots.forEach(d => d.classList.remove('active'));
         currentSlide = (index + slides.length) % slides.length;
@@ -22,28 +22,32 @@ document.addEventListener('DOMContentLoaded', () => {
         dots[currentSlide].classList.add('active');
     }
 
+    function moveToSlide(index) {
+        showSlide(index);
+        restartTimer();
+    }
+
     function nextSlide() {
-        goToSlide(currentSlide + 1);
-        resetSlider();
+        showSlide(currentSlide + 1);
     }
 
     function prevSlide() {
-        goToSlide(currentSlide - 1);
-        resetSlider();
+        showSlide(currentSlide - 1);
     }
 
-    function resetSlider() {
+    function getDuration() {
+        const dur = slides[currentSlide].dataset.duration;
+        return dur ? parseInt(dur) : 5000;
+    }
+
+    function restartTimer() {
         clearInterval(slideInterval);
-        const current = slides[currentSlide];
-        const duration = parseInt(current.dataset.duration) || 5000;
-        slideInterval = setInterval(nextSlide, duration);
+        slideInterval = setInterval(nextSlide, getDuration());
     }
 
     function startSlider() {
         clearInterval(slideInterval);
-        const current = slides[currentSlide];
-        const duration = parseInt(current.dataset.duration) || 5000;
-        slideInterval = setInterval(nextSlide, duration);
+        slideInterval = setInterval(nextSlide, getDuration());
     }
 
     function stopSlider() {
@@ -51,11 +55,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => { stopSlider(); prevSlide(); });
-        nextBtn.addEventListener('click', () => { stopSlider(); nextSlide(); });
+        prevBtn.addEventListener('click', () => { stopSlider(); prevSlide(); restartTimer(); });
+        nextBtn.addEventListener('click', () => { stopSlider(); nextSlide(); restartTimer(); });
     }
 
-    goToSlide(0);
+    showSlide(0);
     startSlider();
 
     const menuToggle = document.querySelector('.menu-toggle');
@@ -235,16 +239,6 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error al cargar comentarios:', err);
         }
     }
-
-    function escapeHtml(text) {
-        const div = document.createElement('div');
-        div.textContent = text;
-        return div.innerHTML;
-    }
-
-    loadComments();
-
-});
 
     function escapeHtml(text) {
         const div = document.createElement('div');

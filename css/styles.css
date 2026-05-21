@@ -315,6 +315,16 @@ img {
     font-size: 5rem;
 }
 
+.hero-logo {
+    max-width: 200px;
+    height: auto;
+    margin-bottom: 20px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 12px;
+}
+
 .hero-title {
     font-family: var(--font-heading);
     font-size: 4rem;
