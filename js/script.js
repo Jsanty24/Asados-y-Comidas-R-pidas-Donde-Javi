@@ -168,4 +168,15 @@ document.addEventListener('DOMContentLoaded', () => {
         observer.observe(el);
     });
 
+    // ==================== ABOUT SLIDER ====================
+    const aboutSlides = document.querySelectorAll('.about-slide');
+    if (aboutSlides.length > 1) {
+        let currentAbout = 0;
+        setInterval(() => {
+            aboutSlides.forEach(s => s.classList.remove('active'));
+            currentAbout = (currentAbout + 1) % aboutSlides.length;
+            aboutSlides[currentAbout].classList.add('active');
+        }, 4000);
+    }
+
 });
