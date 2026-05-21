@@ -389,6 +389,26 @@ img {
 
 /* ==================== PROMOTIONS ==================== */
 
+.about-slider {
+    position: relative;
+}
+
+.about-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 0.8s ease;
+}
+
+.about-slide.active {
+    opacity: 1;
+    position: relative;
+}
+
 .promotions-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
