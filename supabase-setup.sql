@@ -28,3 +28,6 @@ CREATE POLICY "Permitir lectura anonima" ON encuestas
     FOR SELECT
     TO anon
     USING (true);
+
+-- Habilitar replicación en tiempo real para la tabla encuestas
+ALTER PUBLICATION supabase_realtime ADD TABLE encuestas;

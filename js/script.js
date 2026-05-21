@@ -22,11 +22,28 @@ document.addEventListener('DOMContentLoaded', () => {
         dots[currentSlide].classList.add('active');
     }
 
-    function nextSlide() { goToSlide(currentSlide + 1); }
-    function prevSlide() { goToSlide(currentSlide - 1); }
+    function nextSlide() {
+        goToSlide(currentSlide + 1);
+        resetSlider();
+    }
+
+    function prevSlide() {
+        goToSlide(currentSlide - 1);
+        resetSlider();
+    }
+
+    function resetSlider() {
+        clearInterval(slideInterval);
+        const current = slides[currentSlide];
+        const duration = parseInt(current.dataset.duration) || 5000;
+        slideInterval = setInterval(nextSlide, duration);
+    }
 
     function startSlider() {
-        slideInterval = setInterval(nextSlide, 5000);
+        clearInterval(slideInterval);
+        const current = slides[currentSlide];
+        const duration = parseInt(current.dataset.duration) || 5000;
+        slideInterval = setInterval(nextSlide, duration);
     }
 
     function stopSlider() {
@@ -34,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     if (prevBtn && nextBtn) {
-        prevBtn.addEventListener('click', () => { stopSlider(); prevSlide(); startSlider(); });
-        nextBtn.addEventListener('click', () => { stopSlider(); nextSlide(); startSlider(); });
+        prevBtn.addEventListener('click', () => { stopSlider(); prevSlide(); });
+        nextBtn.addEventListener('click', () => { stopSlider(); nextSlide(); });
     }
 
     goToSlide(0);
@@ -218,6 +235,40 @@ document.addEventListener('DOMContentLoaded', () => {
             console.error('Error al cargar comentarios:', err);
         }
     }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    loadComments();
+
+    // ==================== REAL-TIME COMMENTS ====================
+    supabaseClient
+        .channel('encuestas-realtime')
+        .on('postgres_changes', { event: 'INSERT', schema: 'public', table: 'encuestas' }, payload => {
+            const { nombre, calificacion, mensaje, created_at } = payload.new;
+            const stars = '★'.repeat(calificacion) + '☆'.repeat(5 - calificacion);
+            const date = created_at ? new Date(created_at).toLocaleDateString('es-CO') : '';
+            const emptyMsg = commentsList.querySelector('.comments-empty');
+            if (emptyMsg) emptyMsg.remove();
+
+            const card = document.createElement('div');
+            card.className = 'comment-card';
+            card.innerHTML = `
+                <div class="comment-header">
+                    <span class="comment-name">${escapeHtml(nombre)}</span>
+                    <span class="comment-stars">${stars}</span>
+                </div>
+                <p class="comment-message">${escapeHtml(mensaje)}</p>
+                <div class="comment-date">${date}</div>
+            `;
+            commentsList.prepend(card);
+        })
+        .subscribe();
+
+});
 
     function escapeHtml(text) {
         const div = document.createElement('div');

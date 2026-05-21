@@ -306,6 +306,15 @@ img {
     color: var(--color-white);
 }
 
+.hero-content--center {
+    text-align: center;
+    margin: 0 auto;
+}
+
+.hero-title--large {
+    font-size: 5rem;
+}
+
 .hero-title {
     font-family: var(--font-heading);
     font-size: 4rem;
