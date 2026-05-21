@@ -22,3 +22,9 @@ CREATE POLICY "Permitir insert anonimo" ON encuestas
 CREATE POLICY "Solo admin puede leer" ON encuestas
     FOR SELECT
     USING (auth.role() = 'service_role');
+
+-- Permitir lectura anónima (para mostrar comentarios en la página)
+CREATE POLICY "Permitir lectura anonima" ON encuestas
+    FOR SELECT
+    TO anon
+    USING (true);

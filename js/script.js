@@ -179,4 +179,52 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 4000);
     }
 
+    // ==================== FETCH COMMENTS ====================
+    const commentsList = document.getElementById('comments-list');
+
+    async function loadComments() {
+        try {
+            const { data, error } = await supabaseClient
+                .from('encuestas')
+                .select('nombre, calificacion, mensaje, created_at')
+                .order('created_at', { ascending: false })
+                .limit(20);
+
+            if (error) throw error;
+
+            if (!data || data.length === 0) return;
+
+            commentsList.innerHTML = '';
+
+            data.forEach(comment => {
+                const stars = '★'.repeat(comment.calificacion) + '☆'.repeat(5 - comment.calificacion);
+                const date = comment.created_at
+                    ? new Date(comment.created_at).toLocaleDateString('es-CO')
+                    : '';
+
+                const card = document.createElement('div');
+                card.className = 'comment-card';
+                card.innerHTML = `
+                    <div class="comment-header">
+                        <span class="comment-name">${escapeHtml(comment.nombre)}</span>
+                        <span class="comment-stars">${stars}</span>
+                    </div>
+                    <p class="comment-message">${escapeHtml(comment.mensaje)}</p>
+                    <div class="comment-date">${date}</div>
+                `;
+                commentsList.appendChild(card);
+            });
+        } catch (err) {
+            console.error('Error al cargar comentarios:', err);
+        }
+    }
+
+    function escapeHtml(text) {
+        const div = document.createElement('div');
+        div.textContent = text;
+        return div.innerHTML;
+    }
+
+    loadComments();
+
 });

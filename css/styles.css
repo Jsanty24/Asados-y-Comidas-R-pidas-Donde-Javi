@@ -688,9 +688,23 @@ img {
 
 /* ==================== SURVEY ==================== */
 
+.survey-layout {
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    gap: 40px;
+    align-items: start;
+}
+
 .survey-container {
-    max-width: 700px;
-    margin: 0 auto;
+    max-width: 100%;
+}
+
+.survey-divider {
+    width: 1px;
+    height: 100%;
+    min-height: 400px;
+    background: var(--color-gray-200);
+    align-self: stretch;
 }
 
 .survey-form {
@@ -830,6 +844,83 @@ img {
 .survey-success p {
     font-size: 1.1rem;
     color: var(--color-gray-600);
+}
+
+/* ==================== COMMENTS ==================== */
+
+.survey-comments {
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+.comments-title {
+    font-family: var(--font-heading);
+    font-size: 1.3rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 20px;
+    color: var(--color-gray-800);
+}
+
+.comments-empty {
+    text-align: center;
+    padding: 40px 20px;
+    color: var(--color-gray-400);
+    font-style: italic;
+}
+
+.comment-card {
+    background: var(--color-gray-100);
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--color-primary);
+    animation: fadeInUp 0.4s ease forwards;
+}
+
+.comment-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+}
+
+.comment-name {
+    font-weight: 700;
+    font-size: 1rem;
+    color: var(--color-gray-900);
+}
+
+.comment-stars {
+    color: var(--color-accent);
+    font-size: 1.2rem;
+    letter-spacing: 2px;
+}
+
+.comment-message {
+    font-size: 0.9rem;
+    color: var(--color-gray-700);
+    line-height: 1.6;
+}
+
+.comment-date {
+    font-size: 0.75rem;
+    color: var(--color-gray-400);
+    margin-top: 8px;
+}
+
+.comments-list::-webkit-scrollbar {
+    width: 6px;
+}
+
+.comments-list::-webkit-scrollbar-track {
+    background: var(--color-gray-100);
+    border-radius: 3px;
+}
+
+.comments-list::-webkit-scrollbar-thumb {
+    background: var(--color-gray-400);
+    border-radius: 3px;
 }
 
 /* ==================== CONTACT ==================== */
@@ -1141,6 +1232,15 @@ img {
 
     .social-links {
         justify-content: center;
+    }
+
+    .survey-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .survey-divider {
+        display: none;
     }
 
     .survey-form {

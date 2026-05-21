@@ -319,70 +319,81 @@
                     <h2 class="section-title">Encuesta de Satisfacción</h2>
                     <p class="section-desc">Tu opinión nos ayuda a mejorar. ¡Califica tu experiencia!</p>
                 </div>
-                <div class="survey-container">
-                    <form id="survey-form" class="survey-form">
-                        <div class="form-row">
-                            <div class="form-group">
-                                <label for="survey-name">Nombre completo</label>
-                                <input type="text" id="survey-name" name="name" required placeholder="Tu nombre">
+                <div class="survey-layout">
+                    <div class="survey-container">
+                        <form id="survey-form" class="survey-form">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="survey-name">Nombre completo</label>
+                                    <input type="text" id="survey-name" name="name" required placeholder="Tu nombre">
+                                </div>
+                                <div class="form-group">
+                                    <label for="survey-email">Correo electrónico</label>
+                                    <input type="email" id="survey-email" name="email" required placeholder="correo@ejemplo.com">
+                                </div>
                             </div>
                             <div class="form-group">
-                                <label for="survey-email">Correo electrónico</label>
-                                <input type="email" id="survey-email" name="email" required placeholder="correo@ejemplo.com">
+                                <label>Califica tu experiencia</label>
+                                <div class="rating">
+                                    <input type="radio" id="star5" name="rating" value="5">
+                                    <label for="star5" title="Excelente">&#9733;</label>
+                                    <input type="radio" id="star4" name="rating" value="4">
+                                    <label for="star4" title="Muy bueno">&#9733;</label>
+                                    <input type="radio" id="star3" name="rating" value="3">
+                                    <label for="star3" title="Bueno">&#9733;</label>
+                                    <input type="radio" id="star2" name="rating" value="2">
+                                    <label for="star2" title="Regular">&#9733;</label>
+                                    <input type="radio" id="star1" name="rating" value="1">
+                                    <label for="star1" title="Malo">&#9733;</label>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="survey-message">¿Qué te pareció nuestra comida y servicio?</label>
+                                <textarea id="survey-message" name="message" rows="4" placeholder="Cuéntanos tu experiencia..." required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>¿Cómo nos conociste?</label>
+                                <div class="referral-options">
+                                    <label class="radio-custom">
+                                        <input type="radio" name="referral" value="redes">
+                                        <span>Redes Sociales</span>
+                                    </label>
+                                    <label class="radio-custom">
+                                        <input type="radio" name="referral" value="amigo">
+                                        <span>Recomendación</span>
+                                    </label>
+                                    <label class="radio-custom">
+                                        <input type="radio" name="referral" value="google">
+                                        <span>Google</span>
+                                    </label>
+                                    <label class="radio-custom">
+                                        <input type="radio" name="referral" value="pasaba">
+                                        <span>Pasaba por aquí</span>
+                                    </label>
+                                    <label class="radio-custom">
+                                        <input type="radio" name="referral" value="otro">
+                                        <span>Otro</span>
+                                    </label>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar Encuesta</button>
+                        </form>
+                        <div id="survey-success" class="survey-success hidden">
+                            <div class="success-icon">
+                                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#4CAF50" stroke-width="4"/><path d="M35 50 L45 60 L65 40" fill="none" stroke="#4CAF50" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                            </div>
+                            <h3>¡Gracias por tu opinión!</h3>
+                            <p>Tus comentarios nos ayudan a mejorar cada día</p>
+                        </div>
+                    </div>
+                    <div class="survey-divider"></div>
+                    <div class="survey-comments">
+                        <h3 class="comments-title">Opiniones de nuestros clientes</h3>
+                        <div id="comments-list" class="comments-list">
+                            <div class="comments-empty">
+                                <p>Aún no hay opiniones. ¡Sé el primero en comentar!</p>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label>Califica tu experiencia</label>
-                            <div class="rating">
-                                <input type="radio" id="star5" name="rating" value="5">
-                                <label for="star5" title="Excelente">&#9733;</label>
-                                <input type="radio" id="star4" name="rating" value="4">
-                                <label for="star4" title="Muy bueno">&#9733;</label>
-                                <input type="radio" id="star3" name="rating" value="3">
-                                <label for="star3" title="Bueno">&#9733;</label>
-                                <input type="radio" id="star2" name="rating" value="2">
-                                <label for="star2" title="Regular">&#9733;</label>
-                                <input type="radio" id="star1" name="rating" value="1">
-                                <label for="star1" title="Malo">&#9733;</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="survey-message">¿Qué te pareció nuestra comida y servicio?</label>
-                            <textarea id="survey-message" name="message" rows="4" placeholder="Cuéntanos tu experiencia..." required></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label>¿Cómo nos conociste?</label>
-                            <div class="referral-options">
-                                <label class="radio-custom">
-                                    <input type="radio" name="referral" value="redes">
-                                    <span>Redes Sociales</span>
-                                </label>
-                                <label class="radio-custom">
-                                    <input type="radio" name="referral" value="amigo">
-                                    <span>Recomendación</span>
-                                </label>
-                                <label class="radio-custom">
-                                    <input type="radio" name="referral" value="google">
-                                    <span>Google</span>
-                                </label>
-                                <label class="radio-custom">
-                                    <input type="radio" name="referral" value="pasaba">
-                                    <span>Pasaba por aquí</span>
-                                </label>
-                                <label class="radio-custom">
-                                    <input type="radio" name="referral" value="otro">
-                                    <span>Otro</span>
-                                </label>
-                            </div>
-                        </div>
-                        <button type="submit" class="btn btn-primary btn-lg btn-block">Enviar Encuesta</button>
-                    </form>
-                    <div id="survey-success" class="survey-success hidden">
-                        <div class="success-icon">
-                            <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="45" fill="none" stroke="#4CAF50" stroke-width="4"/><path d="M35 50 L45 60 L65 40" fill="none" stroke="#4CAF50" stroke-width="6" stroke-linecap="round" stroke-linejoin="round"/></svg>
-                        </div>
-                        <h3>¡Gracias por tu opinión!</h3>
-                        <p>Tus comentarios nos ayudan a mejorar cada día</p>
                     </div>
                 </div>
             </div>
