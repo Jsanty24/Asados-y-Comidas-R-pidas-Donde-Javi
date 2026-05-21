@@ -12,16 +12,16 @@ CREATE TABLE IF NOT EXISTS encuestas (
 -- Habilitar Row Level Security
 ALTER TABLE encuestas ENABLE ROW LEVEL SECURITY;
 
+-- Eliminar políticas existentes para evitar duplicados
+DROP POLICY IF EXISTS "Permitir insert anonimo" ON encuestas;
+DROP POLICY IF EXISTS "Solo admin puede leer" ON encuestas;
+DROP POLICY IF EXISTS "Permitir lectura anonima" ON encuestas;
+
 -- Permitir inserts anónimos (para que los visitantes puedan enviar encuestas)
 CREATE POLICY "Permitir insert anonimo" ON encuestas
     FOR INSERT
     TO anon
     WITH CHECK (true);
-
--- Solo el admin puede leer
-CREATE POLICY "Solo admin puede leer" ON encuestas
-    FOR SELECT
-    USING (auth.role() = 'service_role');
 
 -- Permitir lectura anónima (para que todos vean los comentarios)
 CREATE POLICY "Permitir lectura anonima" ON encuestas
